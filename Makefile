@@ -21,13 +21,15 @@ r:
 	make $(MAKE_FLAGS) -C ../
 	touch ../libft.h
 	make $(MAKE_FLAGS) -C ../
+	make $(MAKE_FLAGS) fclean -C ../
 
-# relink bonus check
+# relink bonus
 rb:
 	make $(MAKE_FLAGS) fclean -C ../
-	make $(MAKE_FLAGS) bonus -C ../
-	make $(MAKE_FLAGS) bonus -C ../
+	make bonus $(MAKE_FLAGS) -C ../
+	make bonus $(MAKE_FLAGS) -C ../
 	touch ../ft_lstadd_back.c
-	make $(MAKE_FLAGS) bonus -C ../
+	make bonus $(MAKE_FLAGS) -C ../
 	touch ../libft.h
-	make $(MAKE_FLAGS) bonus -C ../
+	make bonus $(MAKE_FLAGS) -C ../
+	make $(MAKE_FLAGS) fclean -C ../
