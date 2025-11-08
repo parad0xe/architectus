@@ -17,6 +17,9 @@ YELLOW_B = \e[43m
 .PHONY: .FORCE all clean r rb libft.a bonus
 include list.mk
 
+%.test: $(OUT_DIR)%.test
+	@./$<
+
 WAIT := 0
 # 'make' to test all functions at once
 all: $(BINARIES) $(BBINARIES)
