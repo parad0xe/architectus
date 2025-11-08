@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 23:41:03 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/08 13:55:46 by nlallema         ###   ########.fr       */
+/*   Updated: 2025/11/08 15:23:24 by nlallema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int	main(void)
 {
-	set_display("ft_strlen", "strlen");
-	
-	char *test = "Hello World";
-	size_t actual = ft_strlen(test);
-	size_t expected = strlen(test);
-	check_is_equal(&actual, &expected, T_INT);
+	size_t	i = -1;
+	char	*tests[] = { "Hello World", "", "\0", NULL };
+
+	while (tests[++i])
+		check_is_equal(T_INT, ft_strlen(tests[i]), strlen(tests[i]));
 	return (0);
 }
