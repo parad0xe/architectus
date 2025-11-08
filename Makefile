@@ -1,35 +1,50 @@
-TESTS = $(wildcard $(TESTS_DIR)*.c)
-BINARIES = $(TESTS:$(TESTS_DIR)%.c=%.ev)
+# HOW TO USE :
+# 'make' to test all functions at once
+# 'make {function.ev}' to test a single function
+# 'make libft.a' to rebuild the libft.a
+# 'make clean' to delete .ev files
+# 'make fclean' to delete libft.a and .ev files
+# 'make rb' to test bonus relink
+# 'make r' to test mandatory relink
 
 .PHONY: .FORCE all clean r rb
 
-BONUS_FLAG =
 SHELL := /bin/bash
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -L ../ -lft
 TESTS_DIR = tests/
+BINARIES = $(TESTS:$(TESTS_DIR)%.c=%.ev)
 LIB = ../libft.a
 
+# 'make' to test all functions at once
 all: $(BINARIES)
 
-# run make {name of function with '.ev' to test}
+# 'make {function.ev}' to test a single function
 %.ev: $(TESTS_DIR)%.c $(LIB) .FORCE
 	@$(CC) $(CFLAGS) $< $(LIB) -o $@ 
 	@./$@
 
-# rebuild lib
-$(LIB):
-	$(MAKE) fclean -C ../ --quiet
-	$(MAKE) $(BONUS_FLAG) -C ../ --quiet
-	$(MAKE) bonus $(BONUS_FLAG) -C ../ --quiet
+$(LIB): libft.a
 
+# 'make libft.a' to rebuild the libft.a
+libft.a:
+	@$(MAKE) fclean -C ../ --quiet
+	@$(MAKE)  -C ../ > /dev/null 2>&1
+	@$(MAKE) bonus -C ../ > /dev/null 2>&1 
+
+# 'make clean' to delete .ev files
 clean:
 	@rm -f *.ev
 
+# 'make fclean' to delete libft.a and .ev files
+fclean: clean
+	@$(MAKE) fclean -C ../ --quiet	
+
+# 'make rb' to test bonus relink
 rb:
 	@$(MAKE) BONUS_FLAG="bonus $(BONUS_FLAG)" r BONUS=1 --no-print-directory
 
-# relink
+# 'make r' to test mandatory relink
 r:
 	@printf "\033[1;31mDouble make:\033[1;30m\n"
 	@make $(BONUS_FLAG) fclean -C ../ --no-print-directory > /dev/null 2>&1 
