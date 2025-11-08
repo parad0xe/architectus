@@ -41,12 +41,30 @@ clean:
 	@rm -rf $(OUT_DIR)
 # 'make fclean' to delete libft.a and .test files
 fclean: clean
-	@$(MAKE) fclean -C ../ --quiet	
+	@$(MAKE) fclean -C ../ --quiet
 # 'make re' does 'make fclean' and 'make all'
 re: fclean all
 
+search:
+	@SORTED=$$(printf "%s\n" $(MUSTFILES) | sort);\
+	M=$$(comm -23 <(echo "$$SORTED") <(echo "$$LIST"));\
+	E=$$(comm -13 <(echo "$$SORTED") <(echo "$$LIST"));\
+	if [ -z "$$M" ] && [ -z "$$E" ]; then\
+		printf "$(GREEN)NO MISSING NOR EXTRA FILE$(RESET)\n";\
+	else\
+		[ ! -z "$$M" ] && printf "$(RED)MISSING FILES:\n%s$(RESET)\n" "$$M";\
+		[ ! -z "$$E" ] && printf "$(RED)EXTRA FILES:\n%s$(RESET)\n" "$$E";\
+	fi;\
+	true
 # 'make check' to check files
+check:
+	@LIST=$$(find ../ -maxdepth 1 -type f ! -name "*.o" ! -name "*_bonus*" ! -name "*.d" -printf "%f\n" | sort);\
+	$(MAKE) search LIST="$$LIST" --no-print-directory
 # 'make checkb' to check bonus files
+checkb:
+	@LIST=$$(find ../ -maxdepth 1 -type f ! -name "*.o" ! -name "*.d" -printf "%f\n" | sort);\
+	$(MAKE) search MUSTFILES="$(MUSTFILES) $(BTESTS)" LIST="$$LIST" --no-print-directory
+
 # 'make n' to test the norm
 n: fclean
 	@printf "|$(YELLOW_B)NORM CHECK$(RESET)|\n"
