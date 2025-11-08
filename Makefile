@@ -4,7 +4,7 @@ BINARIES = $(TESTS:$(TESTS_DIR)%.c=%.ev)
 .PHONY: .FORCE all clean r rb
 
 # -j has issues on recursive makefiles
-#MAKE_FLAGS = -j $$(nprocs) 
+#MAKE_FLAGS = -j 10 $$(nprocs) 
 MAKE_FLAGS =
 
 SHELL := /bin/bash
@@ -34,18 +34,15 @@ rb:
 
 # relink
 r:
-	@read -n 1 -s -p "Double make: (press any key to continue)"
-	@echo
-	@make $(MAKE_FLAGS) fclean -C ../ --no-print-directory
-	@make $(MAKE_FLAGS) -C ../ --no-print-directory
-	@make $(MAKE_FLAGS) -C ../ --no-print-directory
-	@read -n 1 -s -p "C files relink: (press any key to continue)"
-	@echo
+	@printf "\033[1;31mDouble make:\033[1;30m\n"
+	@make $(MAKE_FLAGS) fclean -C ../ --no-print-directory > /dev/null 2>&1 
+	@make $(MAKE_FLAGS) -C ../ --no-print-directory > /dev/null 2>&1 
+	@make $(MAKE_FLAGS) -C ../ --no-print-directory 
+	@printf "\033[1;31mC files relink:\033[0;30m\n"
 	@if [ "$$BONUS" = "1" ]; then touch ../ft_lstadd_back_bonus.c; \
 	else touch ../ft_strlen.c; fi
 	@make $(MAKE_FLAGS) -C ../ --no-print-directory
-	@read -n 1 -s -p "Headers relink: (press any key to continue)"
-	@echo
+	@printf "\033[1;31mHeaders relink:\033[0;30m\n"
 	@touch ../libft.h
 	@make $(MAKE_FLAGS) -C ../ --no-print-directory
-	@make $(MAKE_FLAGS) fclean -C ../ --no-print-directory
+	@make $(MAKE_FLAGS) fclean -C ../ --no-print-directory > /dev/null 2>&1 
