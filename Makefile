@@ -9,10 +9,11 @@
 # 'make n' to test the norm
 # 'make r' to test mandatory relink
 
-.PHONY: .FORCE all clean r rb libft.a
+.PHONY: .FORCE all clean r rb libft.a bonus
+include list.mk
 
-TESTS = $(wildcard $(TESTS_DIR)*.c)
-BINARIES = $(TESTS:$(TESTS_DIR)%.c=%.ev)
+BINARIES = $(patsubst %.c,%.ev,$(TESTS))
+BBINARIES = $(patsubst %.c,%.ev,$(BTESTS)) 
 
 SHELL := /bin/bash
 CC = cc
@@ -23,7 +24,11 @@ wait := 0
 SRCS = tester.c
 
 # 'make' to test all functions at once
-all: $(BINARIES)
+all: $(BINARIES) $(BBINARIES)
+
+mandatory: $(BINARIES)
+
+bonus: $(BBINARIES)
 
 # 'make {function.ev}' to test a single function
 %.ev: $(TESTS_DIR)%.c libft.a .FORCE
