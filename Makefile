@@ -1,4 +1,5 @@
-# HOW TO USE : # 'make' to test all functions at once
+# HOW TO USE :
+# 'make' to test all functions at once
 # 'make {function.ev}' to test a single function
 # 'make libft.a' to rebuild the libft.a
 # 'make clean' to delete .ev files
