@@ -2,11 +2,14 @@ TESTS = $(wildcard $(TESTS_DIR)*.c)
 BINARIES = $(TESTS:$(TESTS_DIR)%.c=%.ev)
 
 .PHONY: .FORCE all clean r rb
-SHELL := /bin/bash
 
+# -j has issues on recursive makefiles
+#MAKE_FLAGS = -j $$(nprocs) 
+MAKE_FLAGS =
+
+SHELL := /bin/bash
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -L ../ -lft
-MAKE_FLAGS = -j $$(nproc)
 TESTS_DIR = tests/
 LIB = ../libft.a
 
@@ -26,15 +29,23 @@ $(LIB):
 clean:
 	rm -f *.ev
 
+rb:
+	@$(MAKE) MAKE_FLAGS="bonus $(MAKE_FLAGS)" r BONUS=1 --no-print-directory
+
 # relink
 r:
-	@read -n 1 -s -p "Appuyez sur une touche pour continuer..."
+	@read -n 1 -s -p "Double make: (press any key to continue)"
 	@echo
 	@make $(MAKE_FLAGS) fclean -C ../ --no-print-directory
 	@make $(MAKE_FLAGS) -C ../ --no-print-directory
 	@make $(MAKE_FLAGS) -C ../ --no-print-directory
-	@touch ../ft_strlen.c 
+	@read -n 1 -s -p "C files relink: (press any key to continue)"
+	@echo
+	@if [ "$$BONUS" = "1" ]; then touch ../ft_lstadd_back_bonus.c; \
+	else touch ../ft_strlen.c; fi
 	@make $(MAKE_FLAGS) -C ../ --no-print-directory
+	@read -n 1 -s -p "Headers relink: (press any key to continue)"
+	@echo
 	@touch ../libft.h
 	@make $(MAKE_FLAGS) -C ../ --no-print-directory
 	@make $(MAKE_FLAGS) fclean -C ../ --no-print-directory
