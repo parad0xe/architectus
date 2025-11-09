@@ -6,12 +6,24 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 22:49:17 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:27:58 by nlallema         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:57:25 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "tester.h"
+
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*ptr;
+
+	ptr = malloc(sizeof(struct s_list));
+	if (!ptr)
+		return (0);
+	ptr->content = content;
+	ptr->next = 0;
+	return (ptr);
+}
 
 static	t_list	*list, *node;
 
