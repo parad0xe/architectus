@@ -29,6 +29,7 @@ m: $(BINARIES)
 # 'make b' to test only the bonus part functions
 b: $(BBINARIES)
 # 'make {function.test}' to test a single function
+.ONESHELL:
 $(OUT_DIR)%.test: $(TESTS_DIR)%.c libft.a .FORCE
 	@stty -echo
 	@mkdir -p $(OUT_DIR)
@@ -38,7 +39,6 @@ $(OUT_DIR)%.test: $(TESTS_DIR)%.c libft.a .FORCE
 	fi ; $(eval WAIT:=1)
 	@$(CC) $(CFLAGS) $< -o $@ $(SRCS) -L ../ -lft
 	@printf "|$(YELLOW_B)%s$(RESET)|\n" $(subst .test,.c,$@)
-	@./$@
 	@stty echo
 
 # 'make clean' to delete .test files
