@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:18:53 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/09 14:52:44 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/09 23:32:28 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,99 +14,188 @@
 
 int atoi(const char *nptr);
 
-int	main(void)
+void test1(void)
 {
-	char	*test;
+	char *test;
 
-	// test 1
 	set_description("Test regular number");
 	test = "9000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));
-	
-	// test 2
+}
+
+void test2(void)
+{
+	char *test;
+
 	set_description("Test regular number with one '+' sign");
 	test = "+5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
-	
-	// test 3
+}
+
+void test3(void)
+{
+	char *test;
+
 	set_description("Test regular number with one '-' sign");
 	test = "-5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
-	
-	// test 4
+}
+
+void test4(void)
+{
+	char *test;
+
 	set_description("Test regular number with multiple '+' sign");
 	test = "++++5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
-	
-	// test 5
+}
+
+void test5(void)
+{
+	char *test;
+
 	set_description("Test regular number with multiple '-' sign");
 	test = "-----5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 6
+void test6(void)
+{
+	char *test;
+
 	set_description("Test regular number with multiple '+-' sign");
 	test = "+--+---+5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 7
+void test7(void)
+{
+	char *test;
+
 	set_description("Test regular number with one ' '");
 	test = " 5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 8
+void test8(void)
+{
+	char *test;
+
 	set_description("Test regular number with multiple ' '");
 	test = "     5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 9
+void test9(void)
+{
+	char *test;
+
 	set_description("Test regular number with one ' +' sign");
 	test = " +5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 10
+void test10(void)
+{
+	char *test;
+
 	set_description("Test regular number with multiple ' ' and one '+' sign");
 	test = "      +5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 11
+void test11(void)
+{
+	char *test;
+
 	set_description("Test regular number with multiple ' ' and multiple '-' sign");
 	test = "      -----5000";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 12
+void test12(void)
+{
+	char *test;
+
 	set_description("Test regular number followed by non digit chars");
 	test = "42hello";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 13
+void test13(void)
+{
+	char *test;
+
 	set_description("Test regular number preceded by multiple ' ', one '+' sign and one non digit");
 	test = "     +a42";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 14
+void test14(void)
+{
+	char *test;
+
 	set_description("Test number 0");
 	test = "0";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 15
+void test15(void)
+{
+	char *test;
+
 	set_description("Test INT_MAX");
 	test = "2147483647";
 	check_is_equal(INT, ft_atoi(test), atoi(test));	
+}
 
-	// test 16
+void test16(void)
+{
+	char *test;
+
 	set_description("Test INT_MIN");
 	test = "-2147483648";
 	check_is_equal(INT, ft_atoi(test), atoi(test));
+}
 
-	// test 17
+void test17(void)
+{
+	char *test;
+
 	set_description("Test INT underflow");
 	test = "-2147483660";
 	check_is_equal(INT, ft_atoi(test), atoi(test));
+}
 
-	// test 18
+void test18(void)
+{
+	char *test;
+
 	set_description("Test INT overflow");
 	test = "2147483660";
 	check_is_equal(INT, ft_atoi(test), atoi(test));
+}
+
+int	main(void)
+{
+	handle(&test1);
+	handle(&test2);
+	handle(&test3);
+	handle(&test4);
+	handle(&test5);
+	handle(&test6);
+	handle(&test7);
+	handle(&test8);
+	handle(&test9);
+	handle(&test10);
+	handle(&test11);
+	handle(&test12);
+	handle(&test13);
+	handle(&test14);
+	handle(&test15);
+	handle(&test16);
+	handle(&test17);
+	handle(&test18);
 
 	return (0);
 }
