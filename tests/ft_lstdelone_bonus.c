@@ -6,12 +6,14 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:16:14 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:09:51 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:22:22 by nlallema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "tester.h"
+
+static	t_list	*node;
 
 void del_free(void *content)
 {
@@ -20,16 +22,12 @@ void del_free(void *content)
 
 void test1(void)
 {
-    t_list *node;
-
     node = ft_lstnew(malloc(10));
     ft_lstdelone(node, del_free);
 }
 
 void test2(void)
 {
-    t_list *node;
-
     node = ft_lstnew(NULL);
     ft_lstdelone(node, del_free);
 }

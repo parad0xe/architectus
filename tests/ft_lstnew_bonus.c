@@ -6,17 +6,17 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 20:18:17 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:10:37 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:26:38 by nlallema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "tester.h"
 
+static	t_list	*list;
+
 void	test1(void)
 {
-	t_list	*list;
-
 	set_description("Create new list with content pointer on str 'hello'");
 	list = ft_lstnew("Hello");
 	check_is_equal(STR, list->content, "Hello");
@@ -28,14 +28,12 @@ void	test1(void)
 
 void	test2(void)
 {
-	t_list	*list;
 	list = ft_lstnew(NULL);
 	free(list);
 }
 
 void	test3(void)
 {
-	t_list	*list;
 	int		n = 98;
 	set_description("Create new list with pointer on int");
 	list = ft_lstnew(&n);

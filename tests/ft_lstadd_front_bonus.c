@@ -6,18 +6,19 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 21:42:47 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:09:38 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:20:37 by nlallema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "tester.h"
 
+static	t_list	*list, *node;
 
 void	test1(void)
 {
-    t_list *list = ft_lstnew("hello");
-    t_list *node = ft_lstnew("world");
+    list = ft_lstnew("hello");
+    node = ft_lstnew("world");
 	t_list *previous_first = list;
 
     set_description("Add a new node at the front. It's next must point to the old first node.");
@@ -33,14 +34,13 @@ void	test1(void)
 
 void	test2(void)
 {
-	t_list	*list = ft_lstnew("hello");
+	list = ft_lstnew("hello");
 	ft_lstadd_front(NULL, list);
 	free(list);
 }
 
 void	test3(void)
 {
-	t_list	*list;
 	list = ft_lstnew("hello");
 	ft_lstadd_front(&list, NULL);
 	free(list);
@@ -48,8 +48,8 @@ void	test3(void)
 
 void test4(void)
 {
-    t_list *list = NULL;
-    t_list *node = ft_lstnew("single");
+    list = NULL;
+    node = ft_lstnew("single");
 
     set_description("Add a node to an empty list.");
     ft_lstadd_front(&list, node);

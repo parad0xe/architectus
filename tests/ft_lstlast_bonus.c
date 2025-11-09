@@ -6,16 +6,18 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:02:09 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:10:03 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:24:16 by nlallema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "tester.h"
 
+static	t_list	*list, *node;
+
 void test1(void)
 {
-    t_list *list = NULL;
+    list = NULL;
 
     set_description("Empty list returns NULL");
     check_is_equal(PTR, ft_lstlast(list), NULL);
@@ -23,8 +25,6 @@ void test1(void)
 
 void test2(void)
 {
-    t_list *list;
-
     set_description("Single node list returns that node");
     list = ft_lstnew("hello");
     check_is_equal(PTR, ft_lstlast(list), list);
@@ -33,9 +33,6 @@ void test2(void)
 
 void test3(void)
 {
-    t_list *list;
-    t_list *node;
-
     set_description("Two nodes list returns last node");
     list = ft_lstnew("first");
     node = ft_lstnew("last");
@@ -50,8 +47,6 @@ void test3(void)
 
 void test4(void)
 {
-    t_list *list;
-    t_list *node;
     int n = 42;
 
     set_description("List with mixed content, last node correct");
@@ -68,8 +63,8 @@ void test4(void)
 
 void test5(void)
 {
-    t_list node = { .content = NULL, .next = (void *)0x1 };
-    ft_lstlast(&node);
+    t_list wrong_node = { .content = NULL, .next = (void *)0x1 };
+    ft_lstlast(&wrong_node);
 }
 
 void test6(void)
