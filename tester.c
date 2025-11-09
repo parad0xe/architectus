@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 11:32:18 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/09 15:07:07 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/09 18:04:54 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,10 @@ void check_is_equal(t_type type, ...)
 			_log_result(type, ok, a, b);
 			break ;
 		case STR:
-			ok = (!strcmp((char *)a, (char *)b));
+			if (!a && !b)
+				ok = 1;
+			else
+				ok = (!strcmp((char *)a, (char *)b));
 			_log_result(type, ok, a, b);
 			break ;
 	}
