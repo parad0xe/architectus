@@ -6,12 +6,14 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:28:41 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:09:43 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:21:43 by nlallema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "tester.h"
+
+static	t_list	*list;
 
 static void del(void *content)
 {
@@ -20,20 +22,18 @@ static void del(void *content)
 
 void test1(void)
 {
-    t_list *list = NULL;
+    list = NULL;
     ft_lstclear(&list, del);
 }
 
 void test2(void)
 {
-    t_list *list;
     list = ft_lstnew(malloc(10));
     ft_lstclear(&list, del);
 }
 
 void test3(void)
 {
-    t_list *list;
     list = ft_lstnew(malloc(10));
     list->next = ft_lstnew(malloc(20));
     list->next->next = ft_lstnew(malloc(30));
@@ -42,7 +42,6 @@ void test3(void)
 
 void test4(void)
 {
-    t_list *list;
     list = ft_lstnew(NULL);
     list->next = ft_lstnew(NULL);
     ft_lstclear(&list, del);
@@ -55,7 +54,6 @@ void test5(void)
 
 void test6(void)
 {
-    t_list *list;
     list = ft_lstnew(malloc(10));
     list->next = ft_lstnew(malloc(20));
     ft_lstclear(&list, NULL);

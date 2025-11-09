@@ -6,13 +6,15 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:48:46 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:09:57 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:23:08 by nlallema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 #include "tester.h"
+
+static	t_list	*list;
 
 static void _increment(void *content)
 {
@@ -50,17 +52,17 @@ void test1(void)
 
 void test2(void)
 {
-    t_list *list = NULL;
-
-    set_description("Calling ft_lstiter with NULL list should not crash");
+    list = NULL;
+    
+	set_description("Calling ft_lstiter with NULL list should not crash");
     ft_lstiter(list, _increment);
 }
 
 void test3(void)
 {
-    t_list *list = ft_lstnew(strdup("test"));
-
-    set_description("Calling ft_lstiter with NULL function pointer should segfault (undefined behavior)");
+    list = ft_lstnew(strdup("test"));
+    
+	set_description("Calling ft_lstiter with NULL function pointer should segfault (undefined behavior)");
     ft_lstiter(list, NULL);
 
     free(list->content);

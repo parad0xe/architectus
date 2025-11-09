@@ -6,13 +6,15 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:52:42 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:14:49 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:25:48 by nlallema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 #include "tester.h"
+
+static	t_list	*node;
 
 static void *_to_upper(void *content)
 {
@@ -58,16 +60,14 @@ void test1(void)
 
 void test2(void)
 {
-    t_list *list = NULL;
-
     set_description("Mapping over NULL list should return NULL");
-    t_list *res = ft_lstmap(list, _to_upper, _del);
+    t_list *res = ft_lstmap(NULL, _to_upper, _del);
     check_is_equal(PTR, res, NULL);
 }
 
 void test3(void)
 {
-    t_list *node = ft_lstnew(strdup("abc"));
+    node = ft_lstnew(strdup("abc"));
 
     set_description("Calling with NULL function should segfault");
     ft_lstmap(node, NULL, _del);
@@ -77,7 +77,7 @@ void test3(void)
 
 void test4(void)
 {
-    t_list *node = ft_lstnew(strdup("abc"));
+    node = ft_lstnew(strdup("abc"));
     ft_lstmap(node, _to_upper, NULL);
 }
 

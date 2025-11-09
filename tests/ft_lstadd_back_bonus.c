@@ -6,17 +6,19 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:41:05 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:09:25 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:19:27 by nlallema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "tester.h"
 
+static	t_list	*list, *node;
+
 void    test1(void)
 {
-    t_list *list = ft_lstnew("hello");
-    t_list *node = ft_lstnew("world");
+    list = ft_lstnew("hello");
+    node = ft_lstnew("world");
 
     set_description("Add a new node at the back. The old last node's next must point to the new node.");
     ft_lstadd_back(&list, node);
@@ -31,7 +33,7 @@ void    test1(void)
 
 void    test2(void)
 {
-    t_list  *list = ft_lstnew("first");
+    list = ft_lstnew("first");
 
     set_description("Passing NULL as list pointer should segfault.");
     ft_lstadd_back(NULL, list);
@@ -40,7 +42,7 @@ void    test2(void)
 
 void    test3(void)
 {
-    t_list  *list = ft_lstnew("hello");
+    list = ft_lstnew("hello");
 
     set_description("Passing NULL as node to add should not change the list.");
     ft_lstadd_back(&list, NULL);
@@ -51,8 +53,8 @@ void    test3(void)
 
 void    test4(void)
 {
-    t_list *list = NULL;
-    t_list *node = ft_lstnew("single");
+    list = NULL;
+    node = ft_lstnew("single");
 
     set_description("Add a node to an empty list.");
     ft_lstadd_back(&list, node);
