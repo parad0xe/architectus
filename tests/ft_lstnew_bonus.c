@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 20:18:17 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/09 22:40:43 by nlallema         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:10:37 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,10 @@ void	test3(void)
 	free(list);
 }
 
-
 int	main(void)
 {
-	// test 1
 	handle(&test1);
-	
-	// test2
 	handle_sigsegv("Create new list with NULL content", &test2, NO_SEGFAULT);
-	
-	// test 3
 	handle(&test3);
+	return (0);
 }

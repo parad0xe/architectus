@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:52:42 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/09 23:59:52 by nlallema         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:10:25 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static void _del(void *content)
     free(content);
 }
 
-/*-----------------------------------------------------------*/
-
 void test1(void)
 {
     t_list *node1 = ft_lstnew(strdup("hello"));
@@ -58,8 +56,6 @@ void test1(void)
     ft_lstclear(&mapped, _del);
 }
 
-/*-----------------------------------------------------------*/
-
 void test2(void)
 {
     t_list *list = NULL;
@@ -68,8 +64,6 @@ void test2(void)
     t_list *res = ft_lstmap(list, _to_upper, _del);
     check_is_equal(PTR, res, NULL);
 }
-
-/*-----------------------------------------------------------*/
 
 void test3(void)
 {
@@ -81,15 +75,11 @@ void test3(void)
     ft_lstclear(&node, _del);
 }
 
-/*-----------------------------------------------------------*/
-
 void test4(void)
 {
     t_list *node = ft_lstnew(strdup("abc"));
     ft_lstmap(node, _to_upper, NULL);
 }
-
-/*-----------------------------------------------------------*/
 
 int main(void)
 {
@@ -97,4 +87,5 @@ int main(void)
     handle(&test2);
     handle_sigsegv("Calling with NULL function pointer should segfault", &test3, SEGFAULT);
     handle_sigsegv("Calling with NULL del function should segfault", &test4, SEGFAULT);
+	return (0);
 }

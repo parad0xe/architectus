@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 21:42:47 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/09 22:39:19 by nlallema         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:09:38 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,9 @@ void test4(void)
 
 int	main(void)
 {
-	// test 1
 	handle(&test1);
-	
-	// test 2
 	handle_sigsegv("Check if NULL list Segfault", &test2, SEGFAULT);
-	
-	// test 3
 	handle_sigsegv("Check if NULL node Segfault", &test3, SEGFAULT);
-	
-	// test 4
 	handle(&test4);
+	return (0);
 }

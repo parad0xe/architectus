@@ -6,7 +6,7 @@
 /*   By: ldecavel <ldecavel@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:07:00 by ldecavel          #+#    #+#             */
-/*   Updated: 2025/11/09 23:07:17 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:09:13 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ int	main(void)
 	handle(&test3);
 	handle(&test4);
 	handle(&test5);
+	return (0);
 }
-

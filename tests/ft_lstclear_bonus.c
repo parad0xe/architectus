@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:28:41 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/09 23:37:51 by nlallema         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:09:43 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ int main(void)
     handle_sigsegv("Clearing a list with NULL content should not segfault", &test4, NO_SEGFAULT);
     handle_sigsegv("Calling ft_lstclear with NULL pointer should not segfault", &test5, NO_SEGFAULT);
     handle_sigsegv("Calling ft_lstclear with NULL del function should segfault", &test6, SEGFAULT);
+	return (0);
 }

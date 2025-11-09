@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:02:09 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/09 23:11:32 by nlallema         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:10:03 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int main(void)
     handle(&test2);
     handle(&test3);
     handle(&test4);
-
     handle_sigsegv("Testing ft_lstlast with invalid next pointer might segfault", &test5, SEGFAULT);
     handle_sigsegv("Calling ft_lstlast with NULL list should NOT segfault", &test6, NO_SEGFAULT);
+	return (0);
 }

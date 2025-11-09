@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 22:49:17 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/09 22:55:18 by nlallema         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:10:42 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,5 @@ int main(void)
     handle(&test2);
     handle(&test3);
     handle(&test4);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ldecavel <ldecavel@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:08:03 by ldecavel          #+#    #+#             */
-/*   Updated: 2025/11/09 23:08:28 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:12:43 by ldecavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ int	main(void)
 	handle(&test4);
 	handle_sigsegv("NULL first string should segfault", &test5, NO_SEGFAULT);
 	handle_sigsegv("NULL second string should segfault", &test6, NO_SEGFAULT);
-}
-
+	return (0);
+}	
