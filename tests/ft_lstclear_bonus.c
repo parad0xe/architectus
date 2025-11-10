@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:28:41 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 01:25:36 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:24:16 by ldecavel         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ void test6(void)
 
 int main(void)
 {
-    handle_sigsegv("Clearing an empty list should not crash", &test1, NO_SEGFAULT);
-    handle_sigsegv("Clearing a single-node list should free it", &test2, NO_SEGFAULT);
-    handle_sigsegv("Clearing multiple nodes should free all", &test3, NO_SEGFAULT);
-    handle_sigsegv("Clearing a list with NULL content should not segfault", &test4, NO_SEGFAULT);
-    handle_sigsegv("Calling ft_lstclear with NULL pointer should not segfault", &test5, NO_SEGFAULT);
-    handle_sigsegv("Calling ft_lstclear with NULL del function should segfault", &test6, NO_SEGFAULT);
+    handle_sigsegv("Clearing an empty list should not crash [no segfault]", &test1, NO_SEGFAULT);
+    handle_sigsegv("Clearing a single-node list should free it [no segfault]", &test2, NO_SEGFAULT);
+    handle_sigsegv("Clearing multiple nodes should free all [no segfault]", &test3, NO_SEGFAULT);
+    handle_sigsegv("Clearing a list with NULL content should not segfault [no segfault]", &test4, NO_SEGFAULT);
+    handle_sigsegv("Calling ft_lstclear with NULL pointer should not segfault [no segfault]", &test5, NO_SEGFAULT);
+    handle_sigsegv("Calling ft_lstclear with NULL del function should segfault [no segfault]", &test6, NO_SEGFAULT);
 	return (0);
 }

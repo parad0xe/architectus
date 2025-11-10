@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 20:18:17 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:57:19 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:17:34 by ldecavel         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	test3(void)
 int	main(void)
 {
 	handle(&test1);
-	handle_sigsegv("Create new list with NULL content", &test2, NO_SEGFAULT);
+	handle_sigsegv("Create new list with NULL content [no segfault]", &test2, NO_SEGFAULT);
 	handle(&test3);
 	return (0);
 }

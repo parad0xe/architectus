@@ -6,7 +6,7 @@
 /*   By: ldecavel <ldecavel@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 10:50:59 by ldecavel          #+#    #+#             */
-/*   Updated: 2025/11/10 01:17:32 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:15:23 by ldecavel         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,11 @@ void test7(void)
 int main(void)
 {
     handle(&test1);
-    handle_sigsegv("emtpy dst", &test2, SEGFAULT);
+    handle_sigsegv("emtpy dst [segfault]", &test2, SEGFAULT);
     handle(&test3);
     handle(&test4);
     handle(&test5);
-    handle_sigsegv("NULL dst", &test6, SEGFAULT);
-    handle_sigsegv("NULL src", &test7, SEGFAULT);
+    handle_sigsegv("NULL dst [segfault]", &test6, SEGFAULT);
+    handle_sigsegv("NULL src [segfault]", &test7, SEGFAULT);
     return (0);
 }

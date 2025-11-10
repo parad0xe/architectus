@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:52:42 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 01:26:05 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:18:04 by ldecavel         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int main(void)
 {
     handle(&test1);
     handle(&test2);
-    handle_sigsegv("Calling with NULL function pointer should segfault", &test3, NO_SEGFAULT);
-    handle_sigsegv("Calling with NULL del function should segfault", &test4, NO_SEGFAULT);
+    handle_sigsegv("Calling with NULL function pointer [no segfault]", &test3, NO_SEGFAULT);
+    handle_sigsegv("Calling with NULL del function [no segfault]", &test4, NO_SEGFAULT);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:16:14 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 00:57:05 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:20:09 by ldecavel         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void test3(void)
 
 int main(void)
 {
-    handle_sigsegv("Check frees node and content", &test1, NO_SEGFAULT);
-    handle_sigsegv("Check free node with NULL content", &test2, NO_SEGFAULT);
-    handle_sigsegv("Check NULL node should NOT segfault", test3, NO_SEGFAULT);
+    handle_sigsegv("Check frees node and content [no segfault]", &test1, NO_SEGFAULT);
+    handle_sigsegv("Check free node with NULL content [no segfault]", &test2, NO_SEGFAULT);
+    handle_sigsegv("Check NULL node [no segfault]", test3, NO_SEGFAULT);
 	return (0);
 }

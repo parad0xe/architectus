@@ -6,7 +6,7 @@
 /*   By: ldecavel <ldecavel@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 17:08:55 by ldecavel          #+#    #+#             */
-/*   Updated: 2025/11/10 01:14:17 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:15:53 by ldecavel         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,8 +267,8 @@ void test20(void)
 
 int main(void)
 {
-    handle(&test1); handle(&test2); handle_sigsegv("Empty dest", &test3, SEGFAULT);
-	handle(&test4); handle(&test5); handle(&test6); handle_sigsegv("NULL dest", &test7, SEGFAULT);
+    handle(&test1); handle(&test2); handle_sigsegv("Empty dest [segfault]", &test3, SEGFAULT);
+	handle(&test4); handle(&test5); handle(&test6); handle_sigsegv("NULL dest [segfault]", &test7, SEGFAULT);
 	handle_sigsegv("NULL src", &test8, SEGFAULT); handle(&test9); handle(&test10); handle(&test11);
 	handle(&test12); handle(&test13); handle(&test14); handle(&test15); handle(&test16);
     handle(&test17); handle(&test18); handle(&test19); handle(&test20);

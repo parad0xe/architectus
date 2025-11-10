@@ -6,7 +6,7 @@
 /*   By: nlallema <nlallema@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 23:48:46 by nlallema          #+#    #+#             */
-/*   Updated: 2025/11/10 01:25:46 by ldecavel         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:19:44 by ldecavel         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void test3(void)
 int main(void)
 {
     handle(&test1);
-    handle_sigsegv("Calling ft_lstiter with NULL list should NOT segfault", &test2, NO_SEGFAULT);
-    handle_sigsegv("Calling ft_lstiter with NULL function pointer should segfault", &test3, NO_SEGFAULT);
+    handle_sigsegv("Calling ft_lstiter with NULL list [no segfault]", &test2, NO_SEGFAULT);
+    handle_sigsegv("Calling ft_lstiter with NULL function pointer [no segfault]", &test3, NO_SEGFAULT);
 	return (0);
 }
