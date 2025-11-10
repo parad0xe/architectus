@@ -13,7 +13,7 @@ RESET = \033[0m
 RED = \033[0;31m
 GREEN = \033[0;32m
 ERASE = \r\033[2K\r
-YELLOW_B = \e[43m
+TITLE = \e[4;30m\e[1;90m
 
 .PHONY: .FORCE all clean r rb libft.a bonus
 include list.mk
@@ -38,7 +38,7 @@ $(OUT_DIR)%.test: $(TESTS_DIR)%.c libft.a .FORCE
 	"\npress any key" ; read -n 1 -s ; printf "$(ERASE)" ;\
 	fi ; $(eval WAIT:=1)
 	@$(CC) $(CFLAGS) $< -o $@ $(SRCS) -L ../ -lft -lbsd
-	@printf "|$(YELLOW_B)%s$(RESET)|\n" $(subst bin/,,$(subst .test,,$@))
+	@printf "|$(TITLE)%s$(RESET)|\n" $(subst bin/,,$(subst .test,,$@))
 	@./$@
 	@stty echo
 
@@ -75,7 +75,7 @@ checkb:
 # 'make n' to test the norm
 n: fclean
 	@$(ERR_TRAP); \
-	printf "|$(YELLOW_B)NORM CHECK$(RESET)|\n"
+	printf "|$(TITLE)NORM CHECK$(RESET)|\n"
 	@find .. -maxdepth 1 -type f \( -name "*.c" -o -name "*.h" \) \
 	| xargs norminette -R CheckForbiddenSourceHeader
 
@@ -85,15 +85,15 @@ rb:
 # 'make r' to test mandatory relink
 r:
 	@stty -echo
-	@printf "|$(YELLOW_B)DOUBLE MAKE$(RESET)|\n"
+	@printf "|$(TITLE)DOUBLE MAKE$(RESET)|\n"
 	@make $(BONUS_FLAG) fclean -C ../ --no-print-directory > /dev/null 2>&1 
 	@make $(BONUS_FLAG) -C ../ --no-print-directory > /dev/null 2>&1 
 	@make $(BONUS_FLAG) -C ../ --no-print-directory 
-	@printf "|$(YELLOW_B)TOUCH .C FILE AND RUN MAKE$(RESET)|\n"
+	@printf "|$(TITLE)TOUCH .C FILE AND RUN MAKE$(RESET)|\n"
 	@if [ "$$BONUS" = "1" ]; then touch ../ft_lstadd_back_bonus.c;\
 	else touch ../ft_strlen.c; fi
 	@make $(BONUS_FLAG) -C ../ --no-print-directory
-	@printf "|$(YELLOW_B)TOUCH HEADER AND RUN MAKE$(RESET)|\n"
+	@printf "|$(TITLE)TOUCH HEADER AND RUN MAKE$(RESET)|\n"
 	@touch ../libft.h
 	@make $(BONUS_FLAG) -C ../ --no-print-directory
 	@make $(BONUS_FLAG) fclean -C ../ --no-print-directory > /dev/null 2>&1 
